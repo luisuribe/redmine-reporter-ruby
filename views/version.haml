@@ -1,0 +1,30 @@
+%h1= "Project: #{@project.name}"
+
+%form{:action => '/version', :method => 'get'}
+
+    %input{ :type => 'hidden', :name => 'project_id', :value => @project.id }
+
+    %select{ :id => 'versions', :name => 'version_id' }
+        - @versions.each do |version|
+            %option{ :value => version.id } #{version.name}
+
+    %input{:type => 'submit', :value => 'Show tickets'}
+
+%table
+    %tbody
+    %tr
+        %th Id
+        %th Subject
+        %th Time
+    - @issues.each do |issue|
+        %tr
+            %td= issue.id
+            %td= issue.subject
+            %td= issue.hours.sum(:logged_hours).to_i
+    - sum = 0
+    - @issues.each { |issue| sum += issue.hours.sum(:logged_hours).to_i }
+    %tr
+        %th Total
+        %th
+        %th= sum
+

@@ -1,0 +1,6 @@
+%h1 List of projects.
+
+%ul
+    - @projects.each do |project|
+        %li
+            %a{:href => project_path(project)}= project.name

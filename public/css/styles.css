@@ -1,0 +1,26 @@
+body {
+    font-family: "Helvetica", "Arial", "sans-serif";
+}
+
+table {
+    width:98%;
+    border-spacing: 0;
+}
+
+td {
+    border-width: 1px;
+    border-color: #c0c0c0;
+    border-style: solid;
+    padding: 2px 5px 2px 5px;
+}
+
+tr:hover {
+    background-color: #cccccc;
+}
+
+th {
+    padding          : 2px 0px 2px 3px;
+    background-color : #adba8c;
+    text-align       : center;
+    font-weight: bold;
+}

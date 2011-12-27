@@ -1,0 +1,11 @@
+%h1= "Project #{@project.name}"
+
+%form{:action => '/version', :method => 'get'}
+
+    %input{ :type => 'hidden', :name => 'project_id', :value => @project.id }
+
+    %select{ :id => 'versions', :name => 'version_id' }
+        - @versions.each do |version|
+            %option{ :value => version.id } #{version.name}
+
+    %input{:type => 'submit', :value => 'Show tickets'}
